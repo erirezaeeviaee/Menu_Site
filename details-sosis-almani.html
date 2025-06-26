@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سوسیس آلمانی - جزئیات</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="https://raw.githubusercontent.com/erirezaeeviaee/Menu_Site/main/Image/logo.jpg" alt="SOKA Logo" class="logo">
+    <h1>سوسیس آلمانی</h1>
+  </header>
+  <main>
+    <section>
+      <h2>مواد تشکیل‌دهنده</h2>
+      <ul>
+        <li>گوشت مرغ</li>
+        <li>ادویه‌جات مخصوص</li>
+        <li>روغن گیاهی</li>
+      </ul>
+    </section>
+    <section class="gallery" aria-label="گالری تصاویر">
+      <!-- <img src="https://raw.githubusercontent.com/erirezaeeviaee/Menu_Site/main/Image/sosis-almani/sosis-almani.jpg" alt="سوسیس آلمانی" tabindex="0"> -->
+    </section>
+    <a href="index.html">بازگشت به منو</a>
+  </main>
+  <div class="popover-lightbox" id="popover-lightbox" role="dialog" aria-modal="true" aria-label="نمایش تصویر بزرگ">
+    <button class="close-lightbox" id="close-lightbox" aria-label="بستن">×</button>
+    <img src="" alt="Full Image" id="popover-img">
+  </div>
+  <script>
+  document.querySelectorAll('.gallery img').forEach(img => {
+    img.addEventListener('click', function(e) {
+      var popover = document.getElementById('popover-lightbox');
+      var popImg = document.getElementById('popover-img');
+      // AJAX load image
+      fetch(this.src)
+        .then(response => response.blob())
+        .then(blob => {
+          var url = URL.createObjectURL(blob);
+          popImg.src = url;
+          popover.classList.add('active');
+          var rect = this.getBoundingClientRect();
+          popImg.onload = function() {
+            popover.style.top = (window.scrollY + rect.top - popover.offsetHeight - 10) + 'px';
+            popover.style.left = (window.scrollX + rect.left + rect.width/2 - popover.offsetWidth/2) + 'px';
+          };
+          if (popImg.complete) popImg.onload();
+        });
+    });
+  });
+  document.getElementById('close-lightbox').addEventListener('click', function(e) {
+    var popover = document.getElementById('popover-lightbox');
+    popover.classList.remove('active');
+    document.getElementById('popover-img').src = '';
+    e.stopPropagation();
+  });
+  document.addEventListener('click', function(e) {
+    var popover = document.getElementById('popover-lightbox');
+    if (popover.classList.contains('active') && !popover.contains(e.target) && !e.target.matches('.gallery img')) {
+      popover.classList.remove('active');
+      document.getElementById('popover-img').src = '';
+    }
+  });
+  </script>
+</body>
+</html> 
