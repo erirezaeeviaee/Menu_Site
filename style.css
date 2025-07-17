@@ -431,4 +431,43 @@ tr:last-child td {
     .order-phone span {
         font-size: 0.95rem;
     }
+}
+
+/* New product label styling */
+.new-label {
+    display: inline-block;
+    background: #ff5722;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 0.2em 0.5em;
+    border-radius: 12px;
+    margin-right: 0.5em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(255, 87, 34, 0.3);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 2px 4px rgba(255, 87, 34, 0.3);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(255, 87, 34, 0.5);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 2px 4px rgba(255, 87, 34, 0.3);
+    }
+}
+
+@media (max-width: 600px) {
+    .new-label {
+        font-size: 0.7rem;
+        padding: 0.15em 0.4em;
+        margin-right: 0.3em;
+    }
 } 
