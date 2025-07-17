@@ -434,10 +434,11 @@ tr:last-child td {
 }
 
 /* New product label styling */
-.new-label {
-    display: inline-block;
-    background: #ff5722;
-    color: white;
+.menu-section .new-label,
+.menu-section a .new-label {
+    display: inline-block !important;
+    background: #ff5722 !important;
+    color: white !important;
     font-size: 0.75rem;
     font-weight: bold;
     padding: 0.2em 0.5em;
@@ -465,11 +466,13 @@ tr:last-child td {
 }
 
 @media (max-width: 600px) {
-    .new-label {
+    .menu-section .new-label,
+    .menu-section a .new-label {
         font-size: 0.7rem;
         padding: 0.15em 0.4em;
         margin-right: 0.3em;
         background: #ff5722 !important;
         color: white !important;
+        display: inline-block !important;
     }
 } 
