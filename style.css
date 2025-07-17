@@ -469,5 +469,7 @@ tr:last-child td {
         font-size: 0.7rem;
         padding: 0.15em 0.4em;
         margin-right: 0.3em;
+        background: #ff5722 !important;
+        color: white !important;
     }
 } 
